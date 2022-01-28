@@ -1,9 +1,13 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string.h>
 using namespace std;
 int main() {
-    string text; cin >> text;
-    for (int i = text.length() - 1; i >= 0; i--)
-        if (string("aeiou").find(text[i]) != string :: npos) text.erase(i, 1);
-        cout << text;
+    char carac[257], temp[257];
+    cin >> carac;
+    for (int i = strlen(carac) - 1; i >= 0; --i)
+        if (strchr("aeiou", carac[i])) {
+            strcpy(temp, carac + i + 1);
+            strcpy(carac + i, temp);
+        } cout << carac;
     return 0;
 }
